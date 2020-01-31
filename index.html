@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    function computerPlay(){
+        
+        let computerChoice = Math.random();
+        
+        if(computerChoice < 0.34){
+            return computerChoice ="Rock";
+        }
+        else if(computerChoice <= 0.67){
+            return computerChoice = "Paper";
+        }
+        else{
+            return computerChoice = "Scissors";
+        }
+    }
+
+   function playerSelection(selection){
+
+       let hareket =["Rock","Paper","Scissors"];
+
+       if(selection===hareket[0]){
+           return "Rock";
+       }
+       else if(selection===hareket[1]){
+           return "Paper";
+       }
+       else{
+           return "Scissors";
+       }
+    }
+    
+    function playRound(playerselection,computerSelection){
+        playerselection = playerSelection();
+        if(playerselection == computerSelection){
+            return "Draw!!";
+        }
+        else if(playerselection==="Rock",computerSelection==="Scissors"){
+            return "Rock beats Scissors, You win !!";
+        }
+        else if(playerselection==="Rock",computerSelection==="Paper"){
+            return "Paper beats Rock, you lose :(";
+        }
+        else if(playerselection==="Paper",computerSelection==="Rock"){
+            return "Paper beats Rock, you win !!";
+        }
+        else if(playerselection==="Paper",computerSelection==="Scissors"){
+            return "Scissors beats Paper, you lose :(";
+        }
+        else if(playerselection==="Scissors",computerSelection==="Rock"){
+            return "Rock beats Scissors, you lose :(";
+        }
+        else if(playerselection==="Scissors",computerSelection==="Paper"){
+            return "Scissors beats Paper, you win !!";
+        }
+    }
+
+    let playerselection = playerSelection();
+    const computerSelection = computerPlay();
+
+    function game(){
+        for(i=1;i<6;i++){
+            playRound();
+        }
+    }
+
+    game();
+
+
+    console.log(playRound(playerselection,computerSelection));
+  </script>
+</body>
+</html>
